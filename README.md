@@ -1,7 +1,7 @@
-## 配置
+## 安装
 ```
 composer require yixuan997/think-addons
-
+```
 ## 配置
 ### 公共配置
 ```
