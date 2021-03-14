@@ -1,10 +1,10 @@
 {
-    "name": "muyulek/think-addons",
+    "name": "yixuan997/think-addons",
     "description": "The ThinkPHP5.1 Addons Package",
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "muyulek",
+            "name": "yixuan997",
             "email": "yjcaomin@qq.com"
         }
     ],
