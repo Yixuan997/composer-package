@@ -13,7 +13,8 @@ composer require yixuan997/think-addons
 	    // 可以定义多个钩子
         'testhook'=>'test' // 键为钩子名称，用于在业务中自定义钩子处理，值为实现该钩子的插件，
 					// 多个插件可以用数组也可以用逗号分割
-	]
+	],
+	'fileflag' => 'install.php'  //插件标识文件配置
 ]
 ```
 或者在\config目录中新建`addons.php`,内容为：
@@ -27,7 +28,8 @@ return [
         // 可以定义多个钩子
         'testhook'=>'test' // 键为钩子名称，用于在业务中自定义钩子处理，值为实现该钩子的插件，
                     // 多个插件可以用数组也可以用逗号分割
-    ]
+    ],
+    'fileflag' => 'install.php'  //插件标识文件配置
 ]
 ```
 
