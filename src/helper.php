@@ -40,7 +40,7 @@ Hook::add('app_init', function () {
             // 获取插件目录名
             $name = pathinfo($info['dirname'], PATHINFO_FILENAME);
             //仅对已安装插件生效
-            if(!is_file(ADDON_PATH.$name.'/'."install.php")){
+            if(!is_file(ADDON_PATH.$name.'/'.config('addons.fileflag'))){
                 continue;
             }
             // 找到插件入口文件
