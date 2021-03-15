@@ -39,6 +39,10 @@ Hook::add('app_init', function () {
             $info = pathinfo($addons_file);
             // 获取插件目录名
             $name = pathinfo($info['dirname'], PATHINFO_FILENAME);
+            //仅对已安装插件生效
+            if(!is_file(ADDON_PATH.$name.'/'."install.php")){
+                continue;
+            }
             // 找到插件入口文件
             if (strtolower($info['filename']) === strtolower($name)) {
                 // 读取出所有公共方法
@@ -170,4 +174,27 @@ function addon_url($url, $param = [], $suffix = true, $domain = false)
     $actions = "{$addons}-{$controller}-{$action}";
 
     return url("addons/execute/{$actions}", $param, $suffix, $domain);
-}   
+}
+/**
+ * 生成插件配置文件
+ * @param array $config 配置信息
+ * @param string $name 配置文件名
+ * @return array
+ */
+function create_config($config,$name="install.php"){
+    $config_file=ADDON_PATH."/".$config['name']."/".$name;
+    
+    if(is_file($config_file) && file_exists($config_file)){
+        return false;
+    }
+    $config=var_export($config, true);
+    $content =<<<EOT
+    <?php
+    return {$config};
+EOT;
+    $result=file_put_contents($config_file,$content);
+    if($result===false){
+        return false;
+    }
+    return true;
+}
